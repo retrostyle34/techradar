@@ -1,0 +1,3 @@
+INSERT INTO item (name, details, type, level, changedate) VALUES ('Netlify', 'You can create static website content, check it into GitHub and then quickly and easily get your site live and available.', 'Platform', 'Assess', '2018-11-11 11:11:11.000')
+INSERT INTO item (name, details, type, level, changedate) VALUES ('Corda', 'Corda is a distributed ledger technology (DLT) platform focused on the financial field.', 'Platform', 'Assess', '2018-10-11 12:10:11.000')
+INSERT INTO item (name, details, type, level, changedate) VALUES ('Keycloak', 'Keycloak is an open source identity and access management solution that makes it easy to secure applications or microservices with little to no code.', 'Platform', 'Trial', '2017-10-11 12:10:00.000')
