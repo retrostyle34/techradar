@@ -1,6 +1,8 @@
 ###
 #   Database Settings
 ###
+
+#server.servlet.context-path=/api
 spring:
   datasource:
     url: jdbc:h2:mem:techradar;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE

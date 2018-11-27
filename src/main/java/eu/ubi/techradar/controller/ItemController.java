@@ -32,7 +32,7 @@ public class ItemController {
     }
 
     @PostMapping("/items")
-    ResponseEntity<?> newEmployee(@RequestBody Item newItem) throws URISyntaxException {
+    public ResponseEntity<?> newItem(@RequestBody Item newItem) throws URISyntaxException {
         Resource<Item> resource = assembler.toResource(repository.save(newItem));
         return ResponseEntity
                 .created(new URI(resource.getId().expand().getHref()))
