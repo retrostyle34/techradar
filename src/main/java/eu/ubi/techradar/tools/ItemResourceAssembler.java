@@ -1,6 +1,6 @@
 package eu.ubi.techradar.tools;
 
-import eu.ubi.techradar.controller.ItemController;
+import eu.ubi.techradar.controller.ItemLinkController;
 import eu.ubi.techradar.entity.Item;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceAssembler;
@@ -15,8 +15,8 @@ public class ItemResourceAssembler implements ResourceAssembler<Item, Resource<I
     public Resource<Item> toResource(Item item) {
 
         Resource<Item> itemResource = new Resource<>(item,
-                linkTo(methodOn(ItemController.class).getItem(item.getId())).withSelfRel(),
-                linkTo(methodOn(ItemController.class).getAll()).withRel("items")
+            linkTo(methodOn(ItemLinkController.class).getItem(item.getId())).withSelfRel(),
+            linkTo(methodOn(ItemLinkController.class).getAll()).withRel("items")
         );
         return itemResource;
     }

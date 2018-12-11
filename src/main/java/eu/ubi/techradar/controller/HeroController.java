@@ -52,9 +52,7 @@ public class HeroController {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST");
         response.setHeader("connection", "keep-alive");
-
         logger.info("Save hero: " + hero.getName() + " Id: "+ hero.getId());
-
         return hero;
     }
 

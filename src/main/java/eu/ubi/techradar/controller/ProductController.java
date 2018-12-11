@@ -22,8 +22,6 @@ public class ProductController {
     private ProductRepository productRepository;
 
 
-
-
     @GetMapping("/products")
     public List<Product> getAll(HttpServletResponse response) {
 
@@ -31,9 +29,6 @@ public class ProductController {
         response.setHeader("access-control-allow-origin", "*");
         response.setHeader("access-control-allow-credentials", "true");
         response.setHeader("connection", "keep-alive");
-
-        //"Origin, X-Requested-With, Content-Type, Accept, Authorization"
-
         return products;
     }
 
@@ -44,7 +39,6 @@ public class ProductController {
         response.setHeader("access-control-allow-origin", "*");
         response.setHeader("access-control-allow-credentials", "true");
         response.setHeader("connection", "keep-alive");
-
         return product;
     }
 
@@ -52,7 +46,6 @@ public class ProductController {
     @CrossOrigin(origins = "http://localhost:8080")
     public Product newProduct(@RequestBody Product newProduct, HttpServletResponse response) {
 
-        logger.info("POST");
         Product product = productRepository.save(newProduct);
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("access-control-allow-origin", "*");
@@ -61,41 +54,35 @@ public class ProductController {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST");
         response.setHeader("connection", "keep-alive");
-
         logger.info("Save product: " + product.getName() + " Id: "+ product.getId());
-
         return product;
     }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
     @CrossOrigin(origins = "http://localhost:8080")
-    public Product replaceItem(@RequestBody Product newProduct, @PathVariable Long id) {
+    public Product replaceProduct(@RequestBody Product newProduct, @PathVariable Long id) {
 
         Product updatedProduct = productRepository.findById(id)
-                .map(item -> {
-                    item.setName(newProduct.getName());
-                    item.setDescription(newProduct.getDescription());
-                    item.setPrice(newProduct.getPrice());
-                    return productRepository.save(item);
+                .map(product -> {
+                    product.setName(newProduct.getName());
+                    product.setDescription(newProduct.getDescription());
+                    product.setPrice(newProduct.getPrice());
+                    return productRepository.save(product);
                 })
                 .orElseGet(() -> {
                     newProduct.setId(id);
                     return productRepository.save(newProduct);
                 });
-
         return updatedProduct;
     }
 
 
     @DeleteMapping("/products/{id}")
     @CrossOrigin(origins = "http://localhost:8080")
-    public Product deleteItem(@PathVariable Long id) {
-
+    public Product deleteProduct(@PathVariable Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("id: " + id));
         productRepository.deleteById(id);
         return product;
     }
-
-
 }

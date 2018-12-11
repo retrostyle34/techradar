@@ -17,8 +17,7 @@ public class Item {
     @Column(name = "changedate")
     private LocalDateTime changeDate;
 
-    public Item() {
-    }
+    public Item() {}
 
     public Long getId() {
         return id;

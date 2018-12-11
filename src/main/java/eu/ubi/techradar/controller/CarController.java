@@ -24,7 +24,6 @@ public class CarController {
         response.setHeader("access-control-allow-origin", "*");
         response.setHeader("access-control-allow-credentials", "true");
         response.setHeader("connection", "keep-alive");
-
         return cars;
     }
 
@@ -33,7 +32,6 @@ public class CarController {
 
         Car car = carRepository.findById(id).get();
         response.setHeader("X-Special-Header", "test");
-
         return car;
     }
 
