@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -44,6 +45,7 @@ public class ItemController {
     @PostMapping("/items")
     @CrossOrigin(origins = "http://localhost:8080")
     public Item newItem(@RequestBody Item newItem, HttpServletResponse response) {
+        newItem.setChangeDate(LocalDateTime.now());
         Item item = repository.save(newItem);
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST");
@@ -63,7 +65,7 @@ public class ItemController {
                 item.setDetails(newItem.getDetails());
                 item.setLevel(newItem.getLevel());
                 item.setType(newItem.getType());
-                item.setChangeDate(newItem.getChangeDate());
+                item.setChangeDate(LocalDateTime.now());
                 return repository.save(item);
             })
             .orElseGet(() -> {
