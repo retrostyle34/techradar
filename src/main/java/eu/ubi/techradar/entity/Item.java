@@ -14,7 +14,6 @@ public class Item {
     private String details;
     private String type;
     private String level;
-    @Column(name = "changedate")
     private LocalDateTime changeDate;
 
     public Item() {}
@@ -68,13 +67,13 @@ public class Item {
     }
 
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", details='" + details + '\'' +
-                ", type='" + type + '\'' +
-                ", level='" + level + '\'' +
-                ", changeDate=" + changeDate +
-                '}';
+            return "Item{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", details='" + details + '\'' +
+                    ", type='" + type + '\'' +
+                    ", level='" + level + '\'' +
+                    ", changeDate=" + changeDate +
+                    '}';
     }
 }
