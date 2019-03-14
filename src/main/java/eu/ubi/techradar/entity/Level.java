@@ -10,7 +10,7 @@ public class Level {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String description;
+    private String details;
     private int orderNumber;
 
     public Long getId() {
@@ -29,12 +29,12 @@ public class Level {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDetails() {
+        return details;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     public int getOrderNumber() {
@@ -49,7 +49,7 @@ public class Level {
         return "Level {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                ", details='" + details + '\'' +
                 ", orderNumber='" + orderNumber + '\'' +
                 '}';
     }

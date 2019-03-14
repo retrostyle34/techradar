@@ -58,7 +58,7 @@ public class LevelController {
         Level updatedLevel = repository.findById(id)
             .map(level -> {
                 level.setName(newLevel.getName());
-                level.setDescription(newLevel.getDescription());
+                level.setDetails(newLevel.getDetails());
                 level.setOrderNumber(newLevel.getOrderNumber());
                 return repository.save(level);
             })
