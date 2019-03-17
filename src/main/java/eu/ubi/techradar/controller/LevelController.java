@@ -31,7 +31,7 @@ public class LevelController {
     }
 
 
-    @GetMapping(value = "/level/{id}")
+    @GetMapping(value = "/levels/{id}")
     public Level getLevel(@PathVariable Long id, HttpServletResponse response) {
         Level level = repository.findById(id).orElseThrow(() -> new LevelNotFoundException(" id: " + id));
         response.setHeader("connection", "keep-alive");
@@ -51,7 +51,7 @@ public class LevelController {
     }
 
 
-    @PutMapping("/level/{id}")
+    @PutMapping("/levels/{id}")
     @CrossOrigin(origins = "http://localhost:8080")
     public Level replaceLevel(@RequestBody Level newLevel, @PathVariable Long id) {
 
